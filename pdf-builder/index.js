@@ -44,6 +44,7 @@ const buildContent = (config) =>
 			}
 		});
 		const strContent = content.toString();
+		console.log(path)
 		console.log(strContent);
 		const title = extractTitleFromMdx(strContent);
 		const updatedBody = `# ${title}{page-title}\n\n
