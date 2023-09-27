@@ -31,6 +31,7 @@ const getPages = () =>
 const extractTitleFromMdx = (content) => {
 	var rx = RegExp('title: (.*)\r\n', 'g');
 	var arr = rx.exec(content);
+	if (!arr) return '';
 	return arr[1];
 };
 
