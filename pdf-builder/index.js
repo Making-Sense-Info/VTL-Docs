@@ -31,7 +31,6 @@ const getPages = () =>
 const extractTitleFromMdx = (content) => {
 	var rx = RegExp('title: (.*)\r\n', 'g');
 	var arr = rx.exec(content);
-	if (!arr) return '';
 	return arr[1];
 };
 
@@ -39,12 +38,13 @@ const initialContent = { summary: '# Summary\n', body: '' };
 
 const buildContent = (config) =>
 	config.reduce(({ summary, body }, { depth, path }) => {
-		const content = fs.readFileSync(path, function read(err, data) {
+		const content = fs.readFileSync(path, function read(err) {
 			if (err) {
 				throw err;
 			}
 		});
 		const strContent = content.toString();
+		console.log(strContent);
 		const title = extractTitleFromMdx(strContent);
 		const updatedBody = `# ${title}{page-title}\n\n
 		${strContent
