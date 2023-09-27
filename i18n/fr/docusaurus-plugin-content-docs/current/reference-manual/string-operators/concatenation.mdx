@@ -1,0 +1,65 @@
+---
+id: index-string-concatenation
+title: Concaténation de chaînes de texte
+sidebar_label: Concaténation de chaînes de texte
+slug: /reference-manual/string-operators/string-concatenation
+custom_edit_url: null
+---
+
+## Comportement
+
+Cette opérateur a le comportement des “Opérateurs applicables à deux valeurs scalaires, composants ou jeux de données” (voir la section “Comportement des opérateurs ML”).
+
+## Syntaxe
+
+`op1 || op2`
+
+## Type des paramètres entrant
+
+`op1`, `op2`: `string` or `component<string>` or `dataset { measure<string> _+ }`
+
+## Type du résultat
+
+`result`: `string` or `component<string>` or `dataset { measure<string> _+ }`
+
+## Exemples
+
+```
+str := "Hello" || " " || "world";
+ds_comp_concat := ds1[calc concat := str1 || " " || str2];
+ds_concat := ds2#str1[rename str1 to concat] || " " || ds1#str2[rename str2 to concat];
+```
+
+## Résultats
+
+`ds1`
+
+| id  | str1 | str2 |
+| :-: | :--: | :--: |
+|  1  |  a   | toto |
+|  2  |  b   | titi |
+|  3  |  c   | tata |
+
+`ds2`
+
+| id  | str1  |
+| :-: | :---: |
+|  1  | Hello |
+|  2  |  Hi   |
+|  3  |  Hey  |
+
+`ds_comp_concat`
+
+| id  | str1 | str2 | concat |
+| :-: | :--: | :--: | :----: |
+|  1  |  a   | toto | a toto |
+|  2  |  b   | titi | b titi |
+|  3  |  c   | tata | c tata |
+
+`ds_concat`
+
+| id  |   concat   |
+| :-: | :--------: |
+|  1  | Hello toto |
+|  2  |  Hi titi   |
+|  3  |  Hey tata  |

@@ -1,0 +1,27 @@
+.doc-title {
+	font-size: 50px;
+	font-style: italic;
+	text-align: center;
+	margin-top: 200px;
+}
+
+.page-title {
+	background-color: #6fb1eb;
+	page-break-before: always;
+}
+
+h1 {
+	font-size: 30px;
+}
+
+h2 {
+	font-size: 20px;
+}
+
+h3 {
+	font-size: 15px;
+}
+
+h4 {
+	font-size: 12px;
+}
