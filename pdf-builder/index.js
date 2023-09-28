@@ -29,7 +29,7 @@ const getPages = () =>
 	}, []);
 
 const extractTitleFromMdx = (content) => {
-	var rx = RegExp('title: (.*)(\r\n)', 'g');
+	var rx = RegExp('title: (.*)(\r\n|\n)', 'g');
 	var arr = rx.exec(content);
 	return arr[1];
 };
@@ -50,9 +50,9 @@ const buildContent = (config) =>
 		const title = extractTitleFromMdx(strContent);
 		const updatedBody = `# ${title}{page-title}\n\n
 		${strContent
-			.replace(/^---(.|\r\n)*---\r\n\r\n/, '\r\n')
+			.replace(/^---(.|\r\n|\n)*---(\r\n\r\n|\n\n)/, '\r\n')
 			.replace(/import(.*);/g, '')
-			.replace(/<(.|\r\n)*>/g, '')}`;
+			.replace(/<(.|\r\n|\n)*>/g, '')}`;
 		return {
 			summary: `${summary}\n${buildMdTitleSymbol(depth + 1)} ${title}\n`,
 			body: `<div style="page-break-before:always" />\n\n${body}${updatedBody}`,
