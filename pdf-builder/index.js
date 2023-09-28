@@ -34,7 +34,10 @@ const extractTitleFromMdx = (content) => {
 	return arr[1];
 };
 
-const initialContent = { summary: '# Summary\n', body: '' };
+const initialContent = {
+	summary: '<div style="page-break-before:always" />\n# Summary\n',
+	body: '',
+};
 
 const buildContent = (config) =>
 	config.reduce(({ summary, body }, { depth, path }) => {
@@ -51,15 +54,14 @@ const buildContent = (config) =>
 			.replace(/import(.*);/g, '')
 			.replace(/<(.|\r\n)*>/g, '')}`;
 		return {
-			summary: `${summary}${buildMdTitleSymbol(depth + 1)} ${title}\n\n`,
-			body: `${body}${updatedBody}`,
+			summary: `${summary}\n${buildMdTitleSymbol(depth + 1)} ${title}\n`,
+			body: `<div style="page-break-before:always" />\n\n${body}${updatedBody}`,
 		};
 	}, initialContent);
 
 const pages = getPages();
 const { summary, body } = buildContent(pages);
-const mainPage =
-	'<h1 class="doc-title">VTL specification</h1><div style="page-break-before:always" />\n';
+const mainPage = '<h1 class="doc-title">VTL specification</h1>';
 
 var options = {
 	remarkable: {
@@ -68,7 +70,7 @@ var options = {
 		plugins: [require('remarkable-classy')],
 		syntax: ['footnote', 'sup', 'sub'],
 	},
-	cssPath: './index.css',
+	cssPath: path.join(__dirname, '.', 'index.css'),
 };
 
 markdownpdf(options)
