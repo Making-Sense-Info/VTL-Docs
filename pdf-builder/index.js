@@ -73,6 +73,6 @@ var options = {
 
 markdownpdf(options)
 	.from.string(`${mainPage}${summary}${body}`)
-	.to('../static/vtl-manual.pdf', function () {
-		console.log('VTL PDF done');
+	.to(path.join(__dirname, '..', 'static', 'vtl-manual.pdf'), function () {
+		console.log('VTL PDF documentation built');
 	});
