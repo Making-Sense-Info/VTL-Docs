@@ -15,7 +15,7 @@ module.exports = {
 	// to replace "en" with "zh-Hans".
 	i18n: {
 		defaultLocale: 'en',
-		locales: ['en', 'fr'],
+		locales: ['en'],
 	},
 	customFields: {
 		authors: {
@@ -88,14 +88,6 @@ module.exports = {
 				defaultMode: 'dark',
 				respectPrefersColorScheme: false,
 			},
-			//   announcementBar: {
-			//     id: 'redisconf20201cfp', // Any value that will identify this message.
-			//     content:
-			//       '<a href="https://redis.com/redisdays/" target="_blank" rel="noopener">RedisDays Available Now On-Demand.</a>',
-			//     backgroundColor: '#fff', // Defaults to `#fff`.
-			//     textColor: '#000', // Defaults to `#000`.
-			//     isCloseable: true, // Defaults to `true`.
-			//   },
 		}),
 	presets: [
 		[
