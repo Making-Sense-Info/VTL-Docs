@@ -6,6 +6,8 @@ slug: /reference-manual/string-operators/string-concatenation
 custom_edit_url: null
 ---
 
+import Editor from '@theme/Editor';
+
 ## Behaviour
 
 The operator has the behaviour of the “Operators applicable on two Scalar Values or Data Sets or Data Set Components” (see the section “Typical behaviours of the ML Operators”).
@@ -24,11 +26,11 @@ The operator has the behaviour of the “Operators applicable on two Scalar Valu
 
 ## Examples
 
-```
-str := "Hello" || " " || "world";
-ds_comp_concat := ds1[calc concat := str1 || " " || str2];
-ds_concat := ds2#str1[rename str1 to concat] || " " || ds1#str2[rename str2 to concat];
-```
+<Editor
+	script={
+		'str := "Hello" || " " || "world";\nds_comp_concat := ds1[calc concat := str1 || " " || str2];\nds_concat := ds2#str1[rename str1 to concat] || " " || ds1#str2[rename str2 to concat];'
+	}
+/>
 
 ## Results
 

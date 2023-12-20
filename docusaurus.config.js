@@ -10,13 +10,6 @@ module.exports = {
 	favicon: 'img/favicon.ico',
 	organizationName: 'making-sense-info', // Usually your GitHub org/user name.
 	projectName: 'vtl-docs', // Usually your repo name.
-	// Even if you don't use internalization, you can use this field to set useful
-	// metadata like html lang. For example, if your site is Chinese, you may want
-	// to replace "en" with "zh-Hans".
-	i18n: {
-		defaultLocale: 'en',
-		locales: ['en'],
-	},
 	customFields: {
 		authors: {
 			nicolas: {
