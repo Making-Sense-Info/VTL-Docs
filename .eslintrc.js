@@ -40,6 +40,7 @@ module.exports = {
 				useTabs: true,
 			},
 		],
+		'@typescript-eslint/no-var-requires': 0,
 	},
 	settings: {},
 	ignorePatterns: [
