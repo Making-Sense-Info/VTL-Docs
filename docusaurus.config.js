@@ -138,7 +138,7 @@ module.exports = {
 			require.resolve('docusaurus-lunr-search'),
 			{
 				indexBaseUrl: true,
-				languages: ['en', 'fr'],
+				languages: ['en'],
 			},
 		],
 		'docusaurus-node-polyfills',

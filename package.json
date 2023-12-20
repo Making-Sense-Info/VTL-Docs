@@ -10,8 +10,8 @@
 	"scripts": {
 		"build-pdf": "node ./pdf-builder/index.js",
 		"docusaurus": "docusaurus",
-		"start": "yarn build-pdf && docusaurus start",
-		"build": "yarn build-pdf && docusaurus build",
+		"start": "docusaurus start",
+		"build": "docusaurus build",
 		"swizzle": "docusaurus swizzle",
 		"deploy": "docusaurus deploy",
 		"format": "prettier --loglevel warn --write \"src/**/*.{js,ts,jsx,tsx}\" \"docs/**/*.{md,mdx}\"",
